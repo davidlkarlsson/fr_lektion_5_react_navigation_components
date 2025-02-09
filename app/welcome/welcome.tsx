@@ -3,19 +3,17 @@ import logoDark from "./logo-dark.svg";
 import logoLight from "./logo-light.svg";
 import { useState } from "react";
 import type { User } from "~/types/user";
-
-
-
-
+import { CustomButton } from "~/components/buttons/CustomButton";
 
 export function Welcome() {
-
-  const [user, setUser] = useState<User>( { username: "Benny", password: "123"})
-  const [score, setScore] = useState<number>(0)
+  const [user, setUser] = useState<User>({
+    username: "Benny",
+    password: "123",
+  });
+  const [score, setScore] = useState<number>(0);
 
   function updateScore() {
-
-    setScore( (prev) => prev + 1)
+    setScore((prev) => prev + 1);
   }
 
   // username = Benny
@@ -24,10 +22,10 @@ export function Welcome() {
   // Inte optimalt om man vill uppdatera flera gånger eller har flera variabler. Värdet kan försvinna på vägen
   // ... <--- Spread Operator, kopierar alla värden från alla variabler i ett objekt
   function updateUser() {
-    setUser ( { username: "Benni", password: user.password }) // Not optimal
-    setUser ( (prevUser) => ({...prevUser, username: "Benni"}) ) // Optimal
+    setUser({ username: "Benni", password: user.password }); // Not optimal
+    setUser((prevUser) => ({ ...prevUser, username: "Benni" })); // Optimal
   }
-  
+
   return (
     <main className="flex items-center justify-center pt-16 pb-4">
       <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
@@ -44,6 +42,11 @@ export function Welcome() {
               className="hidden w-full dark:block"
             />
           </div>
+
+          <CustomButton customButtonName={"Info"}/>
+          <CustomButton customButtonName={"About"}/>
+          <CustomButton customButtonName={"Contact"}/>
+
           <Link to="/about">About Page</Link>
         </header>
         <div className="max-w-[300px] w-full space-y-6 px-4">

@@ -1,0 +1,13 @@
+
+.btn {
+  border: 2px solid hsla(240, 17%, 33%, 0.932);
+  background-color: aquamarine;
+  color: blueviolet;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: aqua;
+}
